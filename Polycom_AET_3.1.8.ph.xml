@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>phone-template</type>
+    <version>1</version>
+    <time>2017-05-18 15:00:00</time>
+    <name>Polycom SIP 3.1.8</name>
+    <url>http://www.polycom.com</url>
+    <models>
+      <model ua="SPIP_501">Polycom IP501 AET (3.1.8)</model>
+      <model ua="SPIP_601">Polycom IP601 AET (3.1.8)</model>
+    </models>
+    <description>Polycom SIP 3.1.8</description>
+    <parsers>
+      <parser>BLF</parser>
+    </parsers>
+    <rebootParams>
+      <event-name>check-sync</event-name>
+    </rebootParams>
+    <resyncParams>
+      <event-name>check-sync</event-name>
+    </resyncParams>
+    <firmwareParams>
+      <event-name>check-sync</event-name>
+    </firmwareParams>
+	<AllowedNetworkConfig>
+        <option value="LOCALLAN">1</option>
+    </AllowedNetworkConfig>
+    <dst variableName="dstEnableDisable" enable="1" disable="0">
+    </dst>
+	<interfaceLink>http://%%PHONE_IP%%</interfaceLink>
+    <languages>
+      <!--The first entry is the selected entry in management console-->
+      <option value="English United States">
+        <item name="langwebUI">English (en-us)</item>
+      </option>
+    </languages>
+    <timezoneParams param="time_utc_offset_seconds">
+      <!--The first entry is the selected entry in management console-->
+      <option value="-18000" id="0" zone="-5:00">GMT-5:00 (US Eastern Time, New York)</option>
+      <option value="-43200" id="121" zone="-12:00">GMT-12:00 (International Date Line West)</option>
+      <option value="-39600" id="120" zone="-11:00">GMT-11:00 (Midway Island, Samoa)</option>
+      <option value="-36000" id="1" zone="-10:00">GMT-10:00 (US Hawaiian Time)</option>
+      <option value="-32400" id="3" zone="-9:00">GMT-9:00 (US Alaska Time)</option>
+      <option value="-28800" id="6" zone="-8:00">GMT-8:00 (US Pacific Time, Los Angeles)</option>
+      <option value="-25200" id="9" zone="-7:00">GMT-7:00 (US Mountain Time, Denver)</option>
+      <option value="-21600" id="14" zone="-6:00">GMT-6:00 (US Central Time, Chicago)</option>
+      <option value="-16200" id="18" zone="-4:30">GMT-4:30 (Venezuela)</option>
+      <option value="-14400" id="19" zone="-4:00">GMT-4:00 (Atlantic Time, Quebec)</option>
+      <option value="-12600" id="25" zone="-3:30">GMT-3:30 (Newfoundland)</option>
+      <option value="-10800" id="27" zone="-3:00">GMT-3:00 (Greenland)</option>
+      <option value="-7200" id="123" zone="-2:00">GMT-2:00 (Mid-Atlantic)</option>
+      <option value="-3600" id="31" zone="-1:00">GMT-1:00 (Azores, Cape Verdi Is.)</option>
+      <option value="0" id="36" zone="0:00">GMT(London, Dublin, Edinburgh, Lisbon, Casablanca, Monrovia)</option>
+      <option value="3600" id="61" zone="1:00">GMT+1:00 (Paris,Amsterdam, Berlin, Rome, Vienna, Madrid, Warsaw, Brussels)</option>
+      <option value="7200" id="65" zone="2:00">GMT+2:00 (Israel, Cairo, Athens, Helsinki, Istanbul, Buchrest)</option>
+      <option value="10800" id="81" zone="3:00">GMT+3:00 (Moscow, Kuwait, Baghdad, Tehran, Nairobi)</option>
+      <option value="12600" id="84" zone="3:30">GMT+3:30 (Tehran)</option>
+      <option value="14400" id="86" zone="4:00">GMT+4:00 (Abu Dhabi, Baku)</option>
+      <option value="16200" id="91" zone="4:30">GMT+4:30 (Kabul)</option>
+      <option value="18000" id="94" zone="5:00">GMT+5:00 (Islamabad, Ekaterinburg, Karachi, Tashkent)</option>
+      <option value="19800" id="96" zone="5:30">GMT+5:30 (Chennai, New Delhi, Mumbai)</option>
+      <option value="20700" id="97" zone="5:45">GMT+5:45 (Kathmandu)</option>
+      <option value="21600" id="98" zone="6:00">GMT+6:00 (Almaty, Astana. Dhaka, Novosibirsk)</option>
+      <option value="23400" id="100" zone="6:30">GMT+6:30 (Rangoon)</option>
+      <option value="25200" id="102" zone="7:00">GMT+7:00 (Bankok, Jakarta, Hanoi, Krasnoyarsk)</option>
+      <option value="28800" id="104" zone="8:00">GMT+8:00 (Beijing, Singapore, Taipei, Kuala Lumpur, Irkutsk, Perth)</option>
+      <option value="32400" id="107" zone="9:00">GMT+9:00 (Japan, Korea, Yakutsk)</option>
+      <option value="34200" id="108" zone="9:30">GMT+9:30 (Adelaide, Darwin)</option>
+      <option value="36000" id="110" zone="10:00">GMT+10:00 (Brisbane, Sydney, Melbourne, Canberra, Guam, Hobart)</option>
+      <option value="39600" id="115" zone="11:00">GMT+11:00 (Magadan, Solomon Is., New Caledonia)</option>
+      <option value="43200" id="116" zone="12:00">GMT+12:00 (Auckland, Wellington, Fiji)</option>
+      <option value="46800" id="119" zone="13:00">GMT+13:00 (Nuku'alofa)</option>
+    </timezoneParams>
+  </header>
+  <data>
+    <device>
+      <type>phone</type>
+      <!-- Friendly Name -->
+      <field name="Name">%%mac_address%%.cfg</field>
+      <deviceconfig filename="%%mac_address%%.cfg"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+		<!-- polycom [MACADDRESS].cfg file for firmware and bootrom/updater donloader-->
+
+		<polycomConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="polycomConfig.xsd">
+
+		<APPLICATION APP_FILE_PATH="sip.ld" CONFIG_FILES="[PHONE_MAC_ADDRESS]-config.cfg server.cfg sip_318.cfg" MISC_FILES="" LOG_FILE_DIRECTORY="http://dummypolycomlogserver.com/" OVERRIDES_DIRECTORY="" CONTACTS_DIRECTORY="" LICENSE_DIRECTORY="" USER_PROFILES_DIRECTORY="" CALL_LISTS_DIRECTORY="http://dummypolycomlogserver.com/" COREFILE_DIRECTORY="">
+		</APPLICATION>
+]]></deviceconfig>
+    </device>
+    <device>
+	  <type>phone</type>
+	  <field name="Name">server.cfg</field>
+      <deviceconfig filename="server.cfg"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+======================================================
+Built by: Anthony Evert
+For Polycom Legacy Split Firmware 3.1.8 and Bootrom 4.x and 3CX
+
+Comments: "All-phones" configuration file. This file should contain parameters that override
+parameters in the sip_318.cfg file that apply to all Polycom Legacy phones on this server.
+======================================================
+-->
+<domain>
+  <presence pres.reg="1" pres.idleSoftKeys="1" />   
+  <feature 
+	feature.1.name="presence" 
+	feature.1.enabled="1" 
+	feature.2.name="messaging" 
+	feature.2.enabled="0" 
+	feature.3.name="directory" 
+	feature.3.enabled="1" 
+	feature.4.name="calllist" 
+	feature.4.enabled="1" 
+	feature.5.name="ring-download" 
+	feature.5.enabled="1" 
+	feature.6.name="calllist-received" 
+	feature.6.enabled="1" 
+	feature.7.name="calllist-placed" 
+	feature.7.enabled="1" 
+	feature.8.name="calllist-missed" 
+	feature.8.enabled="1" 
+	feature.9.name="url-dialing" 
+	feature.9.enabled="1" 
+	feature.10.name="call-park" 
+	feature.10.enabled="0" 
+	feature.11.name="group-call-pickup" 
+	feature.11.enabled="0" 
+	feature.12.name="directed-call-pickup" 
+	feature.12.enabled="0" 
+	feature.13.name="last-call-return" 
+	feature.13.enabled="0" 
+	feature.14.name="acd-login-logout" 
+	feature.14.enabled="0" 
+	feature.15.name="acd-agent-availability" 
+	feature.15.enabled="0" 
+	feature.16.name="nway-conference" 
+	feature.16.enabled="0" 
+	feature.17.name="call-recording" 
+	feature.17.enabled="0" 
+	feature.18.name="enhanced-feature-keys" 
+	feature.18.enabled="0" 
+	feature.19.name="corporate-directory" 
+	feature.19.enabled="0" 
+	feature.20.name="picture-frame" 
+	feature.20.enabled="1" />
+
+  <user_preferences 
+	up.headsetMode="0" 
+	up.useDirectoryNames="0" 
+	up.oneTouchVoiceMail="0" 
+	up.welcomeSoundEnabled="1" 
+	up.welcomeSoundOnWarmBootEnabled="0" 
+	up.localClockEnabled="1" 
+	up.backlight.onIntensity="" 
+	up.backlight.idleIntensity="" 
+	up.mwiVisible="0" 
+	up.toneControl.bass="" 
+	up.toneControl.treble="3" 
+	up.audioSetup.auxInput="" 
+	up.audioSetup.auxOutput="" 
+	up.idleTimeout="" 
+	up.handsfreeMode="1" 
+	up.numberFirstCID="0" />
+
+  <voice>
+    <codecs>
+      <preferences 
+		voice.codecPref.G711Mu="1" 
+		voice.codecPref.G711A="3" 
+		voice.codecPref.G729AB="2" 
+		voice.codecPref.IP_4000.G711Mu="1" 
+		voice.codecPref.IP_4000.G711A="3" 
+		voice.codecPref.IP_4000.G729AB="2" />
+	</codecs>
+    <volume 
+		voice.volume.persist.handset="1" 
+		voice.volume.persist.headset="1" 
+		voice.volume.persist.handsfree="1" />
+	</voice>
+
+	<directory>
+    <dirLocal 
+		dir.local.volatile.2meg="1" dir.local.nonVolatile.maxSize.2meg="20" 
+		dir.local.volatile.4meg="1" dir.local.nonVolatile.maxSize.4meg="50" 
+		dir.local.volatile.8meg="1" dir.local.nonVolatile.maxSize.8meg="100" 
+		dir.local.volatile.maxSize="200" 
+		dir.local.readonly="" 
+		dir.search.field="" />
+  </directory>
+
+  <call>
+	<donotdisturb call.donotdisturb.perReg="0"/>
+	<autoOffHook 
+		call.autoOffHook.1.enabled="0" call.autoOffHook.1.contact="" 
+		call.autoOffHook.2.enabled="0" call.autoOffHook.2.contact="" 
+		call.autoOffHook.3.enabled="0" call.autoOffHook.3.contact="" 
+		call.autoOffHook.4.enabled="0" call.autoOffHook.4.contact="" 
+		call.autoOffHook.5.enabled="0" call.autoOffHook.5.contact="" 
+		call.autoOffHook.6.enabled="0" call.autoOffHook.6.contact=""/>
+      
+	<missedCallTracking call.missedCallTracking.1.enabled="0" call.missedCallTracking.2.enabled="0" call.missedCallTracking.3.enabled="0" call.missedCallTracking.4.enabled="0" call.missedCallTracking.5.enabled="0" call.missedCallTracking.6.enabled="0"/>
+    <serverMissedCall call.serverMissedCall.1.enabled="0" call.serverMissedCall.2.enabled="0" call.serverMissedCall.3.enabled="0" call.serverMissedCall.4.enabled="0" call.serverMissedCall.5.enabled="0" call.serverMissedCall.6.enabled="0"/>
+    <callWaiting call.callWaiting.ring="beep"/>
+  </call>
+   
+  <divert 
+	divert.1.contact="" divert.1.autoOnSpecificCaller="1" divert.1.sharedDisabled="1" divert.2.contact="" divert.2.autoOnSpecificCaller="1" divert.2.sharedDisabled="1" divert.3.contact="" divert.3.autoOnSpecificCaller="1" divert.3.sharedDisabled="1" divert.4.contact="" divert.4.autoOnSpecificCaller="1" divert.4.sharedDisabled="1" divert.5.contact="" divert.5.autoOnSpecificCaller="1" divert.5.sharedDisabled="1" divert.6.contact="" divert.6.autoOnSpecificCaller="1" divert.6.sharedDisabled="1">
+    <fwd divert.fwd.1.enabled="1" divert.fwd.2.enabled="1" divert.fwd.3.enabled="1" divert.fwd.4.enabled="1" divert.fwd.5.enabled="1" divert.fwd.6.enabled="1"/>
+    <busy divert.busy.1.enabled="1" divert.busy.1.contact="" divert.busy.2.enabled="1" divert.busy.2.contact="" divert.busy.3.enabled="1" divert.busy.3.contact="" divert.busy.4.enabled="1" divert.busy.4.contact="" divert.busy.5.enabled="1" divert.busy.5.contact="" divert.busy.6.enabled="1" divert.busy.6.contact=""/>
+    <noanswer divert.noanswer.1.enabled="1" divert.noanswer.1.timeout="60" divert.noanswer.1.contact="" divert.noanswer.2.enabled="1" divert.noanswer.2.timeout="60" divert.noanswer.2.contact="" divert.noanswer.3.enabled="1" divert.noanswer.3.timeout="60" divert.noanswer.3.contact="" divert.noanswer.4.enabled="1" divert.noanswer.4.timeout="60" divert.noanswer.4.contact="" divert.noanswer.5.enabled="1" divert.noanswer.5.timeout="60" divert.noanswer.5.contact="" divert.noanswer.6.enabled="1" divert.noanswer.6.timeout="60" divert.noanswer.6.contact=""/>
+    <dnd divert.dnd.1.enabled="0" divert.dnd.1.contact="" divert.dnd.2.enabled="0" divert.dnd.2.contact="" divert.dnd.3.enabled="0" divert.dnd.3.contact="" divert.dnd.4.enabled="0" divert.dnd.4.contact="" divert.dnd.5.enabled="0" divert.dnd.5.contact="" divert.dnd.6.enabled="0" divert.dnd.6.contact=""/>
+  </divert>
+
+  <nat 
+	nat.ip="" 
+	nat.signalPort="" 
+	nat.mediaPortStart="" 
+	nat.keepalive.interval=""/>
+
+  <attendant 
+	attendant.uri="" 
+	attendant.reg="" 
+	attendant.ringType=""/>
+  
+  <roaming_buddies roaming_buddies.reg=""/>
+  <roaming_privacy roaming_privacy.reg=""/>
+  
+  <acd acd.reg="" acd.stateAtSignIn=""/>
+
+  <voIpProt>
+      <local voIpProt.local.port="%%param::sipport%%"/>
+
+      <server
+        voIpProt.server.1.address="%%pbx_ip%%"
+        voIpProt.server.1.port="%%param::sipport%%"
+        voIpProt.server.1.transport="DNSnaptr"
+        voIpProt.server.1.expires=""
+        voIpProt.server.1.expires.overlap=""
+        voIpProt.server.1.register="1"
+        voIpProt.server.1.retryTimeOut="0"
+        voIpProt.server.1.retryMaxCount="0"
+        voIpProt.server.1.expires.lineSeize="30"
+        voIpProt.server.1.lcs=""
+
+        voIpProt.server.2.address="%%pbx_ip%%"
+        voIpProt.server.2.port="%%param::sipport%%"
+        voIpProt.server.2.transport="DNSnaptr"
+        voIpProt.server.2.expires=""
+        voIpProt.server.2.expires.overlap=""
+        voIpProt.server.2.register="1"
+        voIpProt.server.2.retryTimeOut="0"
+        voIpProt.server.2.retryMaxCount="0"
+        voIpProt.server.2.expires.lineSeize="30"
+        voIpProt.server.2.lcs=""
+        
+        voIpProt.server.dhcp.available=""
+        voIpProt.server.dhcp.option=""
+        voIpProt.server.dhcp.type=""/>
+
+      <SIP
+        voIpProt.SIP.useRFC2543hold="0"
+        voIpProt.SIP.useSendonlyHold="1"
+        voIpProt.SIP.lcs="0"
+        voIpProt.SIP.csta="0" 
+        voIpProt.SIP.sendCompactHdrs="0" 
+        voIpProt.SIP.keepalive.sessionTimers="0"        
+        voIpProt.SIP.requestURI.E164.addGlobalPrefix="" 
+        voIpProt.SIP.allowTransferOnProceeding="" 
+        voIpProt.SIP.ms-forking="" 
+        voIpProt.SIP.pingInterval="" 
+        voIpProt.SIP.useContactInReferTo="" 
+        voIpProt.SIP.serverFeatureControl.dnd="" 
+        voIpProt.SIP.serverFeatureControl.localProcessing.dnd="" 
+        voIpProt.SIP.serverFeatureControl.cf="" 
+        voIpProt.SIP.serverFeatureControl.localProcessing.cf="" 
+        voIpProt.SIP.authOptimizedInFailover="" 
+        voIpProt.SIP.strictLineSeize="" 
+        voIpProt.SIP.lineSeize.retries="" 
+        voIpProt.SIP.strictUserValidation="" 
+        voIpProt.SIP.header.warning.enable="0" 
+        voIpProt.SIP.header.warning.codes.accept="" 
+        voIpProt.SIP.header.diversion.enable="0" 
+        voIpProt.SIP.header.diversion.list.useFirst="1" 
+        voIpProt.SIP.acd.signalingMethod="" 
+        voIpProt.SIP.tcpFastFailover=""
+
+         <outboundProxy
+            voIpProt.SIP.outboundProxy.address=""
+            voIpProt.SIP.outboundProxy.port="5060"
+            voIpProt.SIP.outboundProxy.transport="DNSnaptr"/>
+
+         <alertInfo
+            voIpProt.SIP.alertInfo.1.value=""
+            voIpProt.SIP.alertInfo.1.class=""/>
+
+         <requestValidation
+            voIpProt.SIP.requestValidation.1.request=""
+            voIpProt.SIP.requestValidation.1.method=""
+            voIpProt.SIP.requestValidation.1.request.1.event=""
+
+            voIpProt.SIP.requestValidation.2.request=""
+            voIpProt.SIP.requestValidation.2.method=""
+            voIpProt.SIP.requestValidation.2.request.1.event="">
+
+            <digest voIpProt.SIP.requestValidation.digest.realm="PolycomSPIP"/>
+         </requestValidation>
+
+         <specialEvent
+            voIpProt.SIP.specialEvent.lineSeize.nonStandard="1"
+            voIpProt.SIP.specialEvent.checkSync.alwaysReboot="1"/>
+
+         <conference voIpProt.SIP.conference.address=""/>
+
+         <dialog
+            voIpProt.SIP.dialog.useSDP=""
+            voIpProt.SIP.dialog.usePvalue=""/>
+
+         <connectionReuse
+            voIpProt.SIP.connectionReuse.useAlias="0"/>
+
+         <SDP>
+            <answer voIpProt.SDP.answer.useLocalPreferences=""/>
+         </SDP>
+      </SIP>
+   </voIpProt>
+
+   <TCP_IP>
+    <sntp tcpIpApp.sntp.resyncPeriod="86400"/>
+    <sntp tcpIpApp.sntp.address="%%param::time_ntp_server%%"/>
+    <sntp tcpIpApp.sntp.address.overrideDHCP="0"/>
+    <sntp tcpIpApp.sntp.gmtOffset="%%param::time_utc_offset_seconds%%"/>
+    <sntp tcpIpApp.sntp.gmtOffset.overrideDHCP="0"/>
+    <sntp tcpIpApp.sntp.daylightSavings.enable="1"/>
+    <sntp tcpIpApp.sntp.daylightSavings.fixedDayEnable="1"/>
+    <sntp tcpIpApp.sntp.daylightSavings.start.date="%%param::time_dst_start_day%%"/>
+    <sntp tcpIpApp.sntp.daylightSavings.start.month="%%param::time_dst_start_month%%"/>
+    <sntp tcpIpApp.sntp.daylightSavings.start.time="%%param::time_dst_start_hour%%"/>
+    <sntp tcpIpApp.sntp.daylightSavings.stop.date="%%param::time_dst_end_day%%"/>
+    <sntp tcpIpApp.sntp.daylightSavings.stop.month="%%param::time_dst_end_month%%"/>
+    <sntp tcpIpApp.sntp.daylightSavings.stop.time="%%param::time_dst_end_hour%%"/>
+      <keepalive
+        tcpIpApp.keepalive.tcp.idleTransmitInterval=""
+        tcpIpApp.keepalive.tcp.noResponseTrasmitInterval=""
+        tcpIpApp.keepalive.tcp.sip.tls.enable="0"
+      />
+   </TCP_IP>
+
+</domain>
+]]>
+      </deviceconfig>
+	</device>
+  </data>
+
+  <data>
+    <device>
+      <type>phone</type>
+      <!-- Friendly Name -->
+      <field name="Name">%%mac_address%%-config.cfg</field>
+      <deviceconfig filename="%%mac_address%%-config.cfg">
+<![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+======================================================
+Built by: Anthony Evert
+For Polycom Legacy Split Firmware 3.1.8 and Bootrom 4.x and 3CX
+Based on the Configuration file from the Provisioner.net Library.
+-->
+<phone1>
+	<reg
+    reg.1.displayName="%%extension_first_name%% %%extension_last_name%%"
+    reg.1.address="%%extension_number%%"
+    reg.1.label="%%extension_number%%"
+    reg.1.auth.userId="%%extension_auth_id%%"
+    reg.1.auth.password="%%extension_auth_pw%%"
+    reg.1.server.1.address="%%pbx_ip%%"
+    reg.1.server.1.port="%%param::sipport%%"
+    reg.1.server.1.expires="120"
+    reg.1.server.1.register="True"
+    reg.1.lineKeys="1"
+    reg.1.lineKeys.IP_301="2"
+    reg.1.lineKeys.IP_501="3"
+    reg.1.lineKeys.IP_600="6"
+    reg.1.lineKeys.IP_601="6"
+	/>
+	<dialplan 
+		dialplan.impossibleMatchHandling="2" 
+		dialplan.removeEndOfDial="1" 
+		dialplan.applyToUserSend="1" 
+		dialplan.applyToUserDial="1" 
+		dialplan.applyToCallListDial="0" 
+		dialplan.applyToDirectoryDial="0">
+		<digitmap 
+			dialplan.digitmap="911|411|[2-3]xx|*xx.T|4xxT|0T|[5-9]xxxxxx|1[2-9]xxxxxxxxx|011xxx.T" 
+			dialplan.digitmap.timeOut="2|2|2|2|2|2|2|6"
+		/>
+		<routing>
+			<emergency 
+				dialplan.routing.emergency.1.value="911" 
+				dialplan.routing.emergency.1.server.1="1" 
+			/>
+		</routing>
+	</dialplan>
+
+	<call>
+		<autoOffHook
+			call.autoOffHook.1.enabled="0"
+			call.autoOffHook.1.contact="" />
+		<missedCallTracking call.missedCallTracking.1.enabled="1" />
+		<serverMissedCall call.serverMissedCall.1.enabled="0" />
+		<callWaiting call.callWaiting.ring="beep"/>
+	</call>
+
+	<divert
+		divert.1.contact=""
+		divert.1.autoOnSpecificCaller="1"
+		divert.1.sharedDisabled="1">
+		<fwd divert.fwd.1.enabled="1"/>
+		<busy
+			divert.busy.1.enabled="0"
+			divert.busy.1.contact=""
+		 />
+		<noanswer
+			divert.noanswer.1.enabled="0"
+			divert.noanswer.1.timeout="60"
+			divert.noanswer.1.contact=""
+		/>
+		<dnd
+			divert.dnd.1.enabled="0"
+			divert.dnd.1.contact=""
+		/>
+	</divert>
+    <msg msg.bypassInstantMessage="1">
+      <mwi
+        msg.mwi.1.subscribe="%%extension_number%%"
+        msg.mwi.1.callBackMode="contact"
+        msg.mwi.1.callBack="%%vm_number%%"/>
+    </msg>
+</phone1>]]>
+      </deviceconfig>
+    </device>
+  </data>
+
+</doc>
