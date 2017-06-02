@@ -8,6 +8,7 @@ Supports 501 and 601 phones. Probably supports 301 phones too.
 # Install Instructions
 Using the web admin, import the template into 3CX from the Settings->Template page
 
-Copy the sip_318.cfg file to C:\ProgramData\3CX\Instance1\Data\Http\Interface\provisioning\*random_chars*\sip_318.cfg 
-(this file is the stock 3.1.8 config file provided by Polycom).
-
+# Update Instructions
+1. Copy the contents of the Custom_Polycom_AET_3.1.8.ph.xml file to the clipboard
+2. Using the web admin, go to Settings -> Templates and select the Custom_Polycom_AET_3.1.8.ph.xml template.
+3. Delete everything and paste in the updated contents
